@@ -18,12 +18,22 @@ tarlister -n 10 /dev/foo.tar.xz
 
 ## Installation
 
-Uses [`uv`](https://docs.astral.sh/uv/)
+Uses [`uv`](https://docs.astral.sh/uv/) for building
 ```shell
 uv install .
 ```
 
-(or from pypi, should I get around to publishing this?)
+you can use `uv` or `pip` to install:
+
+```shell
+pip install tarlister
+```
+
+or run directly from the package
+
+```shell
+uvx tarlister --help
+```
 
 ## But why?
 
