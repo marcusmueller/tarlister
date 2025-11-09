@@ -11,7 +11,7 @@ import pathlib
 from typing import TypeVar, Callable
 
 
-def main(path: pathlib.Path, howmany: int = 0, block_size: int = 0) -> None:
+def tarlister(path: pathlib.Path, howmany: int = 0, block_size: int = 0) -> None:
     kwargs = dict()
     if block_size:
         kwargs["block_size"] = block_size
@@ -56,8 +56,9 @@ def condition_checking_converter(
 
 nonnegative_int = condition_checking_converter(int, lambda f: f >= 0)
 
+
 # == Launcher ==
-if __name__ == "__main__":
+def main():
     import argparse
 
     parser = argparse.ArgumentParser(description=__doc__)
@@ -79,4 +80,8 @@ if __name__ == "__main__":
         help="Archive reader block size (0: use libarchive-c default block size)",
     )
     args = parser.parse_args()
-    main(args.ARCHIVE, args.how_many, args.block_size)
+    tarlister(args.ARCHIVE, args.how_many, args.block_size)
+
+
+if __name__ == "__main__":
+    main()
